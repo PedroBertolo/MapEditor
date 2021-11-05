@@ -10,7 +10,8 @@ public class Grid {
     public static final int PADDING = 10;
     private int xAxis;
     private int yAxis;
-    private Square square;
+    private Cell[][] matrixOfCells;
+    private Pointer pointer;
 
     public Grid(int xAxis, int yAxis) {
         this.xAxis = xAxis;
@@ -19,21 +20,22 @@ public class Grid {
     }
 
     public void buildGrid() {
-        Rectangle grid = new Rectangle(PADDING, PADDING, xAxis * Square.CELL_SIZE, yAxis * Square.CELL_SIZE);
+        Rectangle grid = new Rectangle(PADDING, PADDING, xAxis * Cell.CELL_SIZE, yAxis * Cell.CELL_SIZE);
         grid.setColor(Color.BLACK);
         grid.draw();
         buildMatrix();
     }
 
     public void buildMatrix() {
+        matrixOfCells = new Cell[getXAxis()][getYAxis()];
 
-        for (int x = 0; x < xAxis * Square.CELL_SIZE; x++) {
-            for (int j = 0; j < yAxis * Square.CELL_SIZE; j++) {
+        for (int x = 0; x < xAxis ; x++) {
+            for (int y= 0; y < yAxis ; y++) {
 
-                Rectangle rec = new Rectangle(PADDING, PADDING, xAxis * Square.CELL_SIZE + x, xAxis * Square.CELL_SIZE + j);
-                rec.draw();
+                matrixOfCells[x][y] = new Cell(x,y);
             }
         }
+        pointer = new Pointer(getXAxis(),getYAxis());
     }
 
 }

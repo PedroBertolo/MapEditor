@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Grid grid = new Grid(40, 40);
+        Grid grid = new Grid(20, 20);
 
         System.out.println("teste");
     }
