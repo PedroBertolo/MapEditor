@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Map_Editor_Challenge.iml" filepath="$PROJECT_DIR$/.idea/Map_Editor_Challenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mapEditor/mapEditor.iml" filepath="$PROJECT_DIR$/mapEditor/mapEditor.iml" />
     </modules>
   </component>
 </project>

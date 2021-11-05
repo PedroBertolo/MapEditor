@@ -1,6 +1,6 @@
 package personal.map.editor.grid;
 
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+
 
 public class Square {
 
