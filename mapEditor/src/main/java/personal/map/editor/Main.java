@@ -8,7 +8,6 @@ public class Main {
 
         Grid grid = new Grid(20, 20);
 
-        System.out.println("teste");
     }
 
 }
