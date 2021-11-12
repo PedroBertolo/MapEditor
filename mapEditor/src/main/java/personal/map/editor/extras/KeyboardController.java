@@ -17,33 +17,32 @@ public class KeyboardController implements KeyboardHandler {
     public void keyboardInit() {
 
         Keyboard keyboard = new Keyboard(this);
+        KeyboardEvent[] keyboardEvents = new KeyboardEvent[4];
 
-        KeyboardEvent rightPressed = new KeyboardEvent();
-        rightPressed.setKey(KeyboardEvent.KEY_RIGHT);
-        rightPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        for (int i = 0; i < keyboardEvents.length; i++) {
+            keyboardEvents[i] = new KeyboardEvent();
+        }
 
-        KeyboardEvent leftPressed = new KeyboardEvent();
-        leftPressed.setKey(KeyboardEvent.KEY_LEFT);
-        leftPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEvents[0].setKey(KeyboardEvent.KEY_RIGHT);
+        keyboardEvents[0].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
-        KeyboardEvent upPressed = new KeyboardEvent();
-        upPressed.setKey(KeyboardEvent.KEY_UP);
-        upPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEvents[1].setKey(KeyboardEvent.KEY_LEFT);
+        keyboardEvents[1].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
-        KeyboardEvent downPressed = new KeyboardEvent();
-        downPressed.setKey(KeyboardEvent.KEY_DOWN);
-        downPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEvents[2].setKey(KeyboardEvent.KEY_UP);
+        keyboardEvents[2].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
-        keyboard.addEventListener(rightPressed);
-        keyboard.addEventListener(leftPressed);
-        keyboard.addEventListener(upPressed);
-        keyboard.addEventListener(downPressed);
+        keyboardEvents[3].setKey(KeyboardEvent.KEY_DOWN);
+        keyboardEvents[3].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
+        for (int i = 0; i < keyboardEvents.length; i++) {
+            keyboard.addEventListener(keyboardEvents[i]);
+
+        }
     }
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-
         switch (keyboardEvent.getKey()) {
 
             case KeyboardEvent.KEY_UP:
@@ -59,12 +58,11 @@ public class KeyboardController implements KeyboardHandler {
                 pointer.moveLeft();
                 break;
         }
-
     }
-
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
+
 }
