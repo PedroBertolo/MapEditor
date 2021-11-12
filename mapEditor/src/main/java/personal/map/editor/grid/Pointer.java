@@ -2,9 +2,6 @@ package personal.map.editor.grid;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import personal.map.editor.extras.KeyboardController;
 
 
@@ -24,10 +21,25 @@ public class Pointer extends Cell {
         keyboardInit();
     }
 
-    private void keyboardInit() {
-        KeyboardController keyboardController = new KeyboardController();
+    public void keyboardInit() {
+        KeyboardController keyboardController = new KeyboardController(this);
+        keyboardController.keyboardInit();
+    }
 
-        
+    public void moveUp() {
+        rectangle.translate(0, -CELL_SIZE);
+    }
+
+    public void moveDown() {
+        rectangle.translate(0, CELL_SIZE);
+    }
+
+    public void moveRight() {
+        rectangle.translate(CELL_SIZE, 0);
+    }
+
+    public void moveLeft() {
+        rectangle.translate(-CELL_SIZE, 0);
     }
 
 

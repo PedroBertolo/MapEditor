@@ -4,10 +4,17 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import personal.map.editor.grid.Pointer;
 
 public class KeyboardController implements KeyboardHandler {
 
-    private void keyboardInit() {
+    private Pointer pointer;
+
+    public KeyboardController(Pointer pointer) {
+        this.pointer = pointer;
+    }
+
+    public void keyboardInit() {
 
         Keyboard keyboard = new Keyboard(this);
 
@@ -34,29 +41,27 @@ public class KeyboardController implements KeyboardHandler {
 
     }
 
- /*   @Override
+    @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        @Override
-        public void keyPressed(KeyboardEvent keyboardEvent) {
 
-            switch (keyboardEvent.getKey()) {
+        switch (keyboardEvent.getKey()) {
 
-                case KeyboardEvent.KEY_UP:
-                    rectangle.translate(0, -CELL_SIZE);
-                    break;
-                case KeyboardEvent.KEY_DOWN:
-                    rectangle.translate(0, CELL_SIZE);
-                    break;
-                case KeyboardEvent.KEY_RIGHT:
-                    rectangle.translate(CELL_SIZE, 0);
-                    break;
-                case KeyboardEvent.KEY_LEFT:
-                    rectangle.translate(-CELL_SIZE, 0);
-                    break;
-            }
-
+            case KeyboardEvent.KEY_UP:
+                pointer.moveUp();
+                break;
+            case KeyboardEvent.KEY_DOWN:
+                pointer.moveDown();
+                break;
+            case KeyboardEvent.KEY_RIGHT:
+                pointer.moveRight();
+                break;
+            case KeyboardEvent.KEY_LEFT:
+                pointer.moveLeft();
+                break;
         }
-    }*/
+
+    }
+
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
