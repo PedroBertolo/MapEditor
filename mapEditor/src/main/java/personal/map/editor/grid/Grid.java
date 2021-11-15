@@ -29,13 +29,12 @@ public class Grid {
     public void buildMatrix() {
         matrixOfCells = new Cell[getXAxis()][getYAxis()];
 
-        for (int x = 0; x < xAxis ; x++) {
-            for (int y= 0; y < yAxis ; y++) {
+        for (int x = 0; x < xAxis; x++) {
+            for (int y = 0; y < yAxis; y++) {
 
-                matrixOfCells[x][y] = new Cell(x,y);
+                matrixOfCells[x][y] = new Cell(x, y);
             }
         }
-        pointer = new Pointer(getXAxis(),getYAxis());
     }
 
 }

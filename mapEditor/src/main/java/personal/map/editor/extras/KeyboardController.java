@@ -1,14 +1,18 @@
 package personal.map.editor.extras;
 
+import lombok.Setter;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import personal.map.editor.Game;
 import personal.map.editor.grid.Pointer;
 
+@Setter
 public class KeyboardController implements KeyboardHandler {
 
     private Pointer pointer;
+    private Game game;
 
     public KeyboardController(Pointer pointer) {
         this.pointer = pointer;
@@ -46,16 +50,16 @@ public class KeyboardController implements KeyboardHandler {
         switch (keyboardEvent.getKey()) {
 
             case KeyboardEvent.KEY_UP:
-                pointer.moveUp();
+                game.movePointer(Directions.UP);
                 break;
             case KeyboardEvent.KEY_DOWN:
-                pointer.moveDown();
+                game.movePointer(Directions.DOWN);
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                pointer.moveRight();
+                game.movePointer(Directions.RIGHT);
                 break;
             case KeyboardEvent.KEY_LEFT:
-                pointer.moveLeft();
+                game.movePointer(Directions.LEFT);
                 break;
         }
     }

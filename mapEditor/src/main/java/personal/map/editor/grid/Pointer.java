@@ -12,19 +12,19 @@ public class Pointer extends Cell {
     private Rectangle rectangle;
     private KeyboardController keyboardController;
 
-    public Pointer(int x, int y) {
+    public Pointer() {
         super(0, 0);
         rectangle = new Rectangle(Grid.PADDING, Grid.PADDING, CELL_SIZE, CELL_SIZE);
         rectangle.setColor(Color.GREEN);
         rectangle.draw();
         rectangle.fill();
-        keyboardInit();
+       // keyboardInit();
     }
 
-    public void keyboardInit() {
+/*    public void keyboardInit() {
         KeyboardController keyboardController = new KeyboardController(this);
         keyboardController.keyboardInit();
-    }
+    }*/
 
     public void moveUp() {
         rectangle.translate(0, -CELL_SIZE);
