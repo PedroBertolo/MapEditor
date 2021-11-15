@@ -2,15 +2,11 @@ package personal.map.editor.grid;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import personal.map.editor.extras.KeyboardController;
 
 
 public class Pointer extends Cell {
 
-    private int x;
-    private int y;
     private Rectangle rectangle;
-    private KeyboardController keyboardController;
 
     public Pointer() {
         super(0, 0);
@@ -18,13 +14,7 @@ public class Pointer extends Cell {
         rectangle.setColor(Color.GREEN);
         rectangle.draw();
         rectangle.fill();
-       // keyboardInit();
     }
-
-/*    public void keyboardInit() {
-        KeyboardController keyboardController = new KeyboardController(this);
-        keyboardController.keyboardInit();
-    }*/
 
     public void moveUp() {
         rectangle.translate(0, -CELL_SIZE);

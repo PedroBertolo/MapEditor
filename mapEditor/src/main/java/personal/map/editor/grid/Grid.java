@@ -11,7 +11,6 @@ public class Grid {
     private int xAxis;
     private int yAxis;
     private Cell[][] matrixOfCells;
-    private Pointer pointer;
 
     public Grid(int xAxis, int yAxis) {
         this.xAxis = xAxis;

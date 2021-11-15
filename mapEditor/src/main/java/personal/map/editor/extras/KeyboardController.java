@@ -6,17 +6,11 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import personal.map.editor.Game;
-import personal.map.editor.grid.Pointer;
 
 @Setter
 public class KeyboardController implements KeyboardHandler {
 
-    private Pointer pointer;
     private Game game;
-
-    public KeyboardController(Pointer pointer) {
-        this.pointer = pointer;
-    }
 
     public void keyboardInit() {
 

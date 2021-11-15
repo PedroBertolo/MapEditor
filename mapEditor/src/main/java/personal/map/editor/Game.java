@@ -14,7 +14,7 @@ public class Game {
     public Game(int xAxis, int yAxis) {
         grid = new Grid(xAxis, yAxis);
         pointer = new Pointer();
-        KeyboardController keyboardController = new KeyboardController(pointer);
+        KeyboardController keyboardController = new KeyboardController();
         keyboardController.setGame(this);
         keyboardController.keyboardInit();
     }
