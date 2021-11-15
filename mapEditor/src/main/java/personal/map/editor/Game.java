@@ -20,6 +20,11 @@ public class Game {
     }
 
     public void movePointer(Directions directions) {
+
+        if (pointerIsOnBorder(directions)) {
+            return;
+        }
+
         switch (directions) {
             case UP:
                 pointer.moveUp();
@@ -28,25 +33,28 @@ public class Game {
                 pointer.moveDown();
                 break;
             case RIGHT:
-                if (checkBorders(Directions.RIGHT)) {
-                    pointer.moveRight();
-                }
+                pointer.moveRight();
                 break;
             case LEFT:
-                if (checkBorders(Directions.LEFT)) {
-                    pointer.moveLeft();
-                    break;
-                }
+                pointer.moveLeft();
+                break;
         }
+
     }
 
-    public boolean checkBorders(Directions direction) {
-        if (pointer.getX() == 0 && direction == Directions.LEFT) {
-            return false;
+    public boolean pointerIsOnBorder(Directions direction) {
+        if (pointer.getY() == 0 && direction == Directions.UP) {
+            return true;
+        } else if (pointer.getY() == grid.getYAxis() - 1 && direction == Directions.DOWN) {
+            return true;
         } else if (pointer.getX() == grid.getXAxis() - 1 && direction == Directions.RIGHT) {
+            return true;
+        } else if (pointer.getX() == 0 && direction == Directions.LEFT) {
+            return true;
+        } else {
             return false;
         }
-        return true;
+
     }
 
 }
