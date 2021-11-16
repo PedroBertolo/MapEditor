@@ -1,7 +1,10 @@
 package personal.map.editor;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import personal.map.editor.extras.Directions;
 import personal.map.editor.extras.KeyboardController;
+import personal.map.editor.grid.Cell;
 import personal.map.editor.grid.Grid;
 import personal.map.editor.grid.Pointer;
 
@@ -9,7 +12,6 @@ public class Game {
 
     private Grid grid;
     private Pointer pointer;
-    private KeyboardController keyboardController;
 
     public Game(int xAxis, int yAxis) {
         grid = new Grid(xAxis, yAxis);
@@ -55,6 +57,19 @@ public class Game {
             return false;
         }
 
+    }
+
+    public void clearGrid() {
+        grid.deleteAll();
+    }
+
+    public void paint() {
+        Cell cell = grid.getMatrixOfCells()[pointer.getX()][pointer.getY()];
+        if (cell.isPainted()) {
+            cell.delete();
+        } else {
+            cell.paintCell();
+        }
     }
 
 }

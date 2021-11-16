@@ -15,7 +15,7 @@ public class KeyboardController implements KeyboardHandler {
     public void keyboardInit() {
 
         Keyboard keyboard = new Keyboard(this);
-        KeyboardEvent[] keyboardEvents = new KeyboardEvent[4];
+        KeyboardEvent[] keyboardEvents = new KeyboardEvent[6];
 
         for (int i = 0; i < keyboardEvents.length; i++) {
             keyboardEvents[i] = new KeyboardEvent();
@@ -32,6 +32,12 @@ public class KeyboardController implements KeyboardHandler {
 
         keyboardEvents[3].setKey(KeyboardEvent.KEY_DOWN);
         keyboardEvents[3].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboardEvents[4].setKey(KeyboardEvent.KEY_C);
+        keyboardEvents[4].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboardEvents[5].setKey(KeyboardEvent.KEY_SPACE);
+        keyboardEvents[5].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
         for (int i = 0; i < keyboardEvents.length; i++) {
             keyboard.addEventListener(keyboardEvents[i]);
@@ -54,6 +60,12 @@ public class KeyboardController implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_LEFT:
                 game.movePointer(Directions.LEFT);
+                break;
+            case KeyboardEvent.KEY_C:
+                game.clearGrid();
+                break;
+            case KeyboardEvent.KEY_SPACE:
+                game.paint();
                 break;
         }
     }

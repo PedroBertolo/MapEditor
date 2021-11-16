@@ -36,6 +36,15 @@ public class Grid {
         }
     }
 
+    public void deleteAll() {
+        for (int x = 0; x < xAxis; x++) {
+            for (int y = 0; y < yAxis; y++) {
+
+                matrixOfCells[x][y].delete();
+            }
+        }
+    }
+
 }
 
 

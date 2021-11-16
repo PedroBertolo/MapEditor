@@ -2,6 +2,7 @@ package personal.map.editor.grid;
 
 import lombok.Data;
 import lombok.Getter;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 @Data
@@ -11,6 +12,7 @@ public class Cell {
     int x;
     int y;
     Rectangle rectangle;
+    private boolean isPainted;
 
     public Cell(int x, int y) {
         this.x = x;
@@ -20,5 +22,13 @@ public class Cell {
 
     }
 
+    public void delete() {
+        isPainted = false;
+        rectangle.draw();
+    }
 
+    public void paintCell() {
+        isPainted = true;
+        rectangle.fill();
+    }
 }
