@@ -1,5 +1,6 @@
 package personal.map.editor;
 
+import lombok.Setter;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import personal.map.editor.extras.Directions;
@@ -8,10 +9,12 @@ import personal.map.editor.grid.Cell;
 import personal.map.editor.grid.Grid;
 import personal.map.editor.grid.Pointer;
 
+@Setter
 public class Game {
 
     private Grid grid;
     private Pointer pointer;
+    private boolean isSpacePressed;
 
     public Game(int xAxis, int yAxis) {
         grid = new Grid(xAxis, yAxis);

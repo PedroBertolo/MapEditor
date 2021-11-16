@@ -65,6 +65,7 @@ public class KeyboardController implements KeyboardHandler {
                 game.clearGrid();
                 break;
             case KeyboardEvent.KEY_SPACE:
+                game.setSpacePressed(true);
                 game.paint();
                 break;
         }
@@ -72,6 +73,9 @@ public class KeyboardController implements KeyboardHandler {
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
+            game.setSpacePressed(false);
+        }
 
     }
 
