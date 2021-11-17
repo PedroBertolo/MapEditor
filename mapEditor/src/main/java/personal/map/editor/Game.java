@@ -30,6 +30,10 @@ public class Game {
             return;
         }
 
+        if (isSpacePressed){
+            paint();
+        }
+
         switch (directions) {
             case UP:
                 pointer.moveUp();
