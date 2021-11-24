@@ -15,7 +15,7 @@ public class KeyboardController implements KeyboardHandler {
     public void keyboardInit() {
 
         Keyboard keyboard = new Keyboard(this);
-        KeyboardEvent[] keyboardEvents = new KeyboardEvent[6];
+        KeyboardEvent[] keyboardEvents = new KeyboardEvent[7];
 
         for (int i = 0; i < keyboardEvents.length; i++) {
             keyboardEvents[i] = new KeyboardEvent();
@@ -38,6 +38,9 @@ public class KeyboardController implements KeyboardHandler {
 
         keyboardEvents[5].setKey(KeyboardEvent.KEY_SPACE);
         keyboardEvents[5].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboardEvents[6].setKey(KeyboardEvent.KEY_SPACE);
+        keyboardEvents[6].setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
 
         for (int i = 0; i < keyboardEvents.length; i++) {
             keyboard.addEventListener(keyboardEvents[i]);
@@ -73,10 +76,12 @@ public class KeyboardController implements KeyboardHandler {
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
-        if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
-            game.setSpacePressed(false);
-        }
 
+        switch (keyboardEvent.getKey()) {
+            case KeyboardEvent.KEY_SPACE:
+                game.setSpacePressed(false);
+                break;
+        }
     }
 
 }

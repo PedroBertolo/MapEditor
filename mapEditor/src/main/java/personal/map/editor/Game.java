@@ -1,15 +1,13 @@
 package personal.map.editor;
 
-import lombok.Setter;
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import lombok.Data;
 import personal.map.editor.extras.Directions;
 import personal.map.editor.extras.KeyboardController;
 import personal.map.editor.grid.Cell;
 import personal.map.editor.grid.Grid;
 import personal.map.editor.grid.Pointer;
 
-@Setter
+@Data
 public class Game {
 
     private Grid grid;
@@ -30,10 +28,6 @@ public class Game {
             return;
         }
 
-        if (isSpacePressed){
-            paint();
-        }
-
         switch (directions) {
             case UP:
                 pointer.moveUp();
@@ -49,6 +43,9 @@ public class Game {
                 break;
         }
 
+        if (isSpacePressed) {
+            paint();
+        }
     }
 
     public boolean pointerIsOnBorder(Directions direction) {
@@ -72,10 +69,10 @@ public class Game {
 
     public void paint() {
         Cell cell = grid.getMatrixOfCells()[pointer.getX()][pointer.getY()];
-        if (cell.isPainted()) {
-            cell.delete();
-        } else {
+        if (!cell.isPainted()) {
             cell.paintCell();
+        } else {
+            cell.delete();
         }
     }
 

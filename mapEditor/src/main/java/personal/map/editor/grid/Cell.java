@@ -1,8 +1,6 @@
 package personal.map.editor.grid;
 
 import lombok.Data;
-import lombok.Getter;
-import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 @Data
